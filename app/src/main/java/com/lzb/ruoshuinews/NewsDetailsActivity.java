@@ -23,10 +23,11 @@ public class NewsDetailsActivity extends Activity {
 
     @ViewById(R.id.news_body_flipper)
     ViewFlipper mNewsBodyFlipper;
-    private TextView mNewsDetails;
+
 
     private int mCount = 0;
-    private float mStartX;
+    private float mDownX;
+    private float mMoveX;
 
     @Click(R.id.newsdetails_titlebar_previous)
     public void newsDetailsTitlebarPreClickedListener() {
@@ -61,6 +62,7 @@ public class NewsDetailsActivity extends Activity {
         mNewsBodyFlipper.setInAnimation(this, R.anim.push_right_in);// 定义下一页进来时的动画
         mNewsBodyFlipper.setOutAnimation(this, R.anim.push_right_out);// 定义当前页出去的动画
         // 显示上一屏
+        createDynamicNewsView();
         mNewsBodyFlipper.showPrevious();
     }
 
@@ -71,36 +73,36 @@ public class NewsDetailsActivity extends Activity {
         // 动态创建新闻视图
         View nNewsBodyLayout = mNewsBodyInflater.inflate(R.layout.news_body,
                 null);
-        mNewsBodyFlipper.addView(nNewsBodyLayout);
         TextView mNewsTitle = (TextView) nNewsBodyLayout
                 .findViewById(R.id.news_body_title);
         mNewsTitle.setText("最新新闻发布啦 " + mCount);
         TextView newsPtimeAndSource = (TextView) nNewsBodyLayout
                 .findViewById(R.id.news_body_ptime_source);
         newsPtimeAndSource.setText("来源：XXXXX     2015-07-25 10:21:22");
-        mNewsDetails = (TextView) nNewsBodyLayout
+        TextView mNewsDetails = (TextView) nNewsBodyLayout
                 .findViewById(R.id.news_body_details);
         mNewsDetails.setText(Html.fromHtml(NEWS));
         mNewsDetails.setOnTouchListener(new NewsBodyOnTouchListener());
+        mNewsBodyFlipper.addView(nNewsBodyLayout);
     }
 
     class NewsBodyOnTouchListener implements View.OnTouchListener {
+
         @Override
         public boolean onTouch(View v, MotionEvent event) {
             switch (event.getAction()) {
             // 手指按下
             case MotionEvent.ACTION_DOWN:
                 // 记录起始坐标
-                mStartX = event.getX();
+                mDownX = event.getX();
                 break;
             // 手指抬起
-            case MotionEvent.ACTION_UP:
-                // 往左滑动
-                if (event.getX() < mStartX) {
+            case MotionEvent.ACTION_MOVE:
+                mMoveX = event.getX();
+                // 从左到右，即前面一篇
+                if (mMoveX - mDownX > 100) {
                     showPrevious();
-                }
-                // 往右滑动
-                else if (event.getX() > mStartX) {
+                } else if (mDownX - mMoveX > 100) {
                     showNext();
                 }
                 break;
