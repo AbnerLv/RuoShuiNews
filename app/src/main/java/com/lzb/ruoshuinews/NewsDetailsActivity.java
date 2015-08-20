@@ -1,6 +1,7 @@
 package com.lzb.ruoshuinews;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -37,6 +38,13 @@ public class NewsDetailsActivity extends Activity {
     @Click(R.id.newsdetails_titlebar_next)
     public void newsDetailsTitlebarNextClickedListener() {
         showNext();
+    }
+
+    @Click(R.id.newsdetails_titlebar_comments)
+    public void threadClickedListener() {
+        Intent intent = new Intent(NewsDetailsActivity.this,
+                CommentsActivity_.class);
+        startActivityForResult(intent, 1);
     }
 
     @AfterViews

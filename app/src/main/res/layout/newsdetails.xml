@@ -7,14 +7,12 @@
     android:layout_marginBottom="0.0dip"
     android:background="@drawable/main_background"
     >
-
     <RelativeLayout
         android:id="@id/newsdetails_titlebar_layout"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/titlebar_background"
         >
-
         <Button
             android:id="@+id/newsdetails_titlebar_previous"
             android:layout_width="wrap_content"
@@ -26,7 +24,6 @@
             android:textSize="14.0sp"
             android:textStyle="bold"
             />
-
         <TextView
             android:id="@+id/newsdetails_titlebar_title"
             android:layout_width="wrap_content"
@@ -38,7 +35,6 @@
             android:textColor="@color/white"
             android:textSize="18.0sp"
             />
-
         <Button
             android:id="@+id/newsdetails_titlebar_next"
             android:layout_width="wrap_content"
@@ -48,7 +44,6 @@
             android:layout_marginTop="7.0dip"
             android:background="@drawable/newsdetails_title_next_btn_selector"
             />
-
         <Button
             android:id="@+id/newsdetails_titlebar_comments"
             android:layout_width="wrap_content"
@@ -71,185 +66,10 @@
         android:layout_marginTop="-12.0dip"
         android:background="@drawable/main_background"/>
 
-    <!--
-    <LinearLayout
-        android:id="@+id/news_body_layout"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_below="@id/newsdetails_titlebar_layout"
-        android:layout_marginBottom="40.0dip"
-        android:layout_marginTop="-12.0dip"
-        >
-
-        <ScrollView
-            android:id="@+id/news_body_scrollview"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:background="#FFE7E7E7"
-            android:fadingEdge="none"
-            >
-
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/news_body_title"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="12.0dip"
-                        android:layout_marginRight="12.0dip"
-                        android:layout_marginTop="12.0dip"
-                        android:textColor="#FF272727"
-                        android:textSize="18.0dip"
-                        android:textStyle="bold"
-                        />
-
-                    <TextView
-                        android:id="@+id/news_body_ptime_source"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="12.0dip"
-                        android:layout_marginRight="12.0dip"
-                        android:layout_marginTop="9.0dip"
-                        android:textColor="#FF888888"
-                        android:textSize="12.0sp"
-                        />
-
-                    <ImageView
-                        android:id="@+id/news_body_separator_line"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8.0dip"
-                        android:src="@drawable/list_separator_line"
-                        android:visibility="visible"
-                        />
-
-                    <ProgressBar
-                        android:id="@+id/news_body_details_loading"
-                        style="?android:attr/progressBarStyleLarge"
-                        android:layout_width="16.0dip"
-                        android:layout_height="16.0dip"
-                        android:layout_centerHorizontal="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="152.0dip"
-                        android:layout_marginTop="10.0dip"
-                        android:clickable="false"
-                        android:visibility="gone"/>
-                </LinearLayout>
-
-                <TextView
-                    android:id="@+id/news_body_details"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5.0dip"
-                    android:textColor="#ff000000"
-                    />
-            </LinearLayout>
-        </ScrollView>
-    </LinearLayout>
-    -->
-
-    <!-- 回复视图布局 -->
-    <LinearLayout
-        android:id="@+id/news_reply_layout"
+    <include
+        android:id="@id/comments_reply_frame"
+        layout="@layout/reply_frame"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_gravity="bottom"
-        android:background="@drawable/news_reply_layout_background"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:visibility="visible"
-        >
-
-        <LinearLayout
-            android:id="@+id/news_reply_edit_layout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="5.0dip"
-            android:layout_marginTop="10.0dip"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:visibility="gone">
-
-            <EditText
-                android:id="@+id/news_reply_edittext"
-                android:layout_width="230.0dip"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5.0dip"
-                android:maxLength="500"
-                android:text="非常好的新闻"/>
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10.0dip"
-                android:layout_marginRight="10.0dip"
-                android:src="@drawable/news_reply_layout_divider"/>
-
-            <Button
-                android:id="@+id/news_reply_post"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="10.0dip"
-                android:background="@drawable/news_reply_post_btn_selector"
-                android:text="发表"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/news_reply_img_layout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="3.0dip"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <ImageButton
-                android:id="@+id/news_reply_img_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5.0dip"
-                android:background="#00000000"
-                android:src="@drawable/news_reply_img_btn_background"/>
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5.0dip"
-                android:layout_marginRight="2.0dip"
-                android:src="@drawable/news_reply_layout_divider"/>
-
-            <ImageButton
-                android:id="@+id/news_share_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="#00000000"
-                android:src="@drawable/news_share_btn_selector"/>
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="2.0dip"
-                android:layout_marginRight="2.0dip"
-                android:src="@drawable/news_reply_layout_divider"/>
-
-            <ImageButton
-                android:id="@+id/news_collect_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="#00000000"
-                android:src="@drawable/news_collect_btn_selector"/>
-        </LinearLayout>
-    </LinearLayout>
-
+        android:layout_alignParentBottom="true"/>
 </RelativeLayout>
