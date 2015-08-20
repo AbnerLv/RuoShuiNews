@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <item type="id" name="main_layout" />
-    <item type="id" name="titlebar_layout" />
-    <item type="id" name="titlebar_title" />
-    <item type="id" name="titlebar_refresh" />
-    <item type="id" name="categorybar_layout" />
-    <item type="id" name="category_arrow_right" />
-    <item type="id" name="category_scrollview" />
-    <item type="id" name="category_layout" />
-    <item type="id" name="news_list" />
-    <item type="id" name="category_title" />
+    <item name="main_layout" type="id"/>
+    <item name="titlebar_layout" type="id"/>
+    <item name="titlebar_title" type="id"/>
+    <item name="titlebar_refresh" type="id"/>
+    <item name="categorybar_layout" type="id"/>
+    <item name="category_arrow_right" type="id"/>
+    <item name="category_scrollview" type="id"/>
+    <item name="category_layout" type="id"/>
+    <item name="news_list" type="id"/>
+    <item name="category_title" type="id"/>
+    <item name="newsdetails_titlebar_layout" type="id"/>
 </resources>

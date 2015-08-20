@@ -19,6 +19,7 @@
         </activity>
 
         <activity android:name=".NewsDetailsActivity_"/>
+        <activity android:name=".CommentsActivity_"/>
     </application>
 
 </manifest>
